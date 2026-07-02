@@ -24,6 +24,7 @@ $result = mysqli_query($conn, $sql);
     <th>Customer Name</th>
     <th>Order Date</th>
     <th>Amount</th>
+    <th>Action</th>
 </tr>
 
 <?php
@@ -43,6 +44,14 @@ while($row=mysqli_fetch_assoc($result))
 <td><?php echo $row['order_date']; ?></td>
 
 <td>₹ <?php echo $row['amount']; ?></td>
+
+<td>
+<a href="delete_transaction.php?id=<?php echo $row['id']; ?>"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Delete this transaction?');">
+Delete
+</a>
+</td>
 
 </tr>
 
